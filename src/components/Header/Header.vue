@@ -57,7 +57,7 @@
           <span class="avatar thumb-sm float-left mr-2">
             <img class="rounded-circle" src="../../assets/people/a5.jpg" alt="..." />
           </span>
-          <span class="small">Philip <span class="fw-semi-bold">Smith</span></span>
+          <span class="small">Denis <span class="fw-semi-bold">Carvalho</span></span>
           <span class="ml-1 circle bg-warning text-white fw-bold">13</span>
         </template>
         <Notifications />
@@ -107,30 +107,35 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-import $ from 'jquery';
-import Notifications from '@/components/Notifications/Notifications';
+import { mapState, mapActions } from "vuex";
+import $ from "jquery";
+import Notifications from "@/components/Notifications/Notifications";
 
 export default {
-  name: 'Headed',
+  name: "Headed",
   components: { Notifications },
   computed: {
-    ...mapState('layout', {
+    ...mapState("layout", {
       sidebarClose: state => state.sidebarClose,
-      sidebarStatic: state => state.sidebarStatic,
-    }),
+      sidebarStatic: state => state.sidebarStatic
+    })
   },
   methods: {
-    ...mapActions('layout', ['toggleSidebar', 'toggleChat', 'switchSidebar', 'changeSidebarActive']),
+    ...mapActions("layout", [
+      "toggleSidebar",
+      "toggleChat",
+      "switchSidebar",
+      "changeSidebarActive"
+    ]),
     switchSidebarMethod() {
       if (!this.sidebarClose) {
         this.switchSidebar(true);
         this.changeSidebarActive(null);
       } else {
         this.switchSidebar(false);
-        const paths = this.$route.fullPath.split('/');
+        const paths = this.$route.fullPath.split("/");
         paths.pop();
-        this.changeSidebarActive(paths.join('/'));
+        this.changeSidebarActive(paths.join("/"));
       }
     },
     toggleSidebarMethod() {
@@ -139,36 +144,46 @@ export default {
         this.changeSidebarActive(null);
       } else {
         this.toggleSidebar();
-        const paths = this.$route.fullPath.split('/');
+        const paths = this.$route.fullPath.split("/");
         paths.pop();
-        this.changeSidebarActive(paths.join('/'));
+        this.changeSidebarActive(paths.join("/"));
       }
     },
     logout() {
-      window.localStorage.setItem('authenticated', false);
-      this.$router.push('/login');
-    },
+      window.localStorage.setItem("authenticated", false);
+      this.$router.push("/login");
+    }
   },
   created() {
     if (window.innerWidth > 576) {
       setTimeout(() => {
-        const $chatNotification = $('#chat-notification');
-        $chatNotification.removeClass('hide').addClass('animated fadeIn')
-          .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', () => {
-            $chatNotification.removeClass('animated fadeIn');
-            setTimeout(() => {
-              $chatNotification.addClass('animated fadeOut')
-                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd'
-                + ' oanimationend animationend', () => {
-                  $chatNotification.addClass('hide');
-                });
-            }, 6000);
-          });
-        $chatNotification.siblings('#toggle-chat')
+        const $chatNotification = $("#chat-notification");
+        $chatNotification
+          .removeClass("hide")
+          .addClass("animated fadeIn")
+          .one(
+            "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
+            () => {
+              $chatNotification.removeClass("animated fadeIn");
+              setTimeout(() => {
+                $chatNotification
+                  .addClass("animated fadeOut")
+                  .one(
+                    "webkitAnimationEnd mozAnimationEnd MSAnimationEnd" +
+                      " oanimationend animationend",
+                    () => {
+                      $chatNotification.addClass("hide");
+                    }
+                  );
+              }, 6000);
+            }
+          );
+        $chatNotification
+          .siblings("#toggle-chat")
           .append('<i class="chat-notification-sing animated bounceIn"></i>');
       }, 4000);
     }
-  },
+  }
 };
 </script>
 

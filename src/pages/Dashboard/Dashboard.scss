@@ -1,7 +1,13 @@
 @import '../../styles/app';
 
+.page-title {
+  color: $blue;
+}
+
 table {
-  td, th {
+
+  td,
+  th {
     font-weight: $font-weight-normal;
   }
 

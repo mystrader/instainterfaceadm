@@ -1,27 +1,27 @@
 <template>
   <div>
     <b-breadcrumb>
-      <b-breadcrumb-item>YOU ARE HERE</b-breadcrumb-item>
+      <b-breadcrumb-item>Você está aqui</b-breadcrumb-item>
       <b-breadcrumb-item active>Dashboard</b-breadcrumb-item>
     </b-breadcrumb>
     <h1 class="page-title">Dashboard</h1>
     <b-row>
       <b-col lg="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
-          <Widget class="h-100 mb-0" title="Visits Today">
+          <Widget class="h-100 mb-0" title="Atendimentos hoje">
             <div class="d-flex justify-content-between align-items-center mb-lg">
               <h2>4,332</h2>
               <i class="la la-arrow-right text-success rotate-315" />
             </div>
             <div class="d-flex flex-wrap justify-content-between">
               <div class="mt">
-                <h6>+830</h6><p class="text-muted mb-0 mr"><small>Logins</small></p>
+                <h6>+830</h6><p class="text-muted mb-0 mr"><small>Resolvidos</small></p>
               </div>
               <div class="mt">
-                <h6>0.5%</h6><p class="text-muted mb-0"><small>Sign Out</small></p>
+                <h6>0.5%</h6><p class="text-muted mb-0"><small>Insatisfeitos</small></p>
               </div>
               <div class="mt">
-                <h6>4.5%</h6><p class="text-muted mb-0 mr"><small>Rate</small></p>
+                <h6>4.5%</h6><p class="text-muted mb-0 mr"><small>Pontuação</small></p>
               </div>
             </div>
           </Widget>
@@ -29,7 +29,7 @@
       </b-col>
       <b-col lg="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
-          <Widget class="h-100 mb-0" title="Revenue Breakdown">
+          <Widget class="h-100 mb-0" title="Ligações ">
             <b-row>
               <b-col xs="12" md="6" lg="7" class="text-center">
                 <div ref="chartContainer" style="height: 100px" />
@@ -43,15 +43,15 @@
       </b-col>
       <b-col lg="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
-          <Widget class="h-100 mb-0" title="App Perfomance">
+          <Widget class="h-100 mb-0" title="Perfomance">
             <p class="text-muted d-flex flex-wrap">
               <small class="mr-lg d-flex align-items-center">
                 <span class="circle bg-success text-success mr-xs" style="font-size: 4px;">.</span>
-                  This Period
+                  Este período
               </small>
               <small class="mr-lg d-flex align-items-center">
                 <span class="circle bg-warning text-warning mr-xs" style="font-size: 4px;">.</span>
-                Last Period
+                Último Período
               </small>
             </p>
             <h6>SDK</h6>
@@ -69,7 +69,7 @@
       </b-col>
       <b-col lg="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
-          <Widget class="h-100 mb-0" title="Server Overview">
+          <Widget class="h-100 mb-0" title="Estatística por período">
             <div class="d-flex align-items-center mb-sm">
               <p class="width-150"><small>60% / 37°С / 3.3 Ghz</small></p>
               <div style="width: calc(100% - 150px)">
@@ -248,68 +248,70 @@
 </template>
 
 <script>
-import $ from 'jquery';
+import $ from "jquery";
 /* eslint-disable */
-import 'imports-loader?jQuery=jquery,this=>window!flot';
-import 'imports-loader?jQuery=jquery,this=>window!flot/jquery.flot.pie';
+import "imports-loader?jQuery=jquery,this=>window!flot";
+import "imports-loader?jQuery=jquery,this=>window!flot/jquery.flot.pie";
 /* eslint-enable */
-import Widget from '@/components/Widget/Widget';
+import Widget from "@/components/Widget/Widget";
 
 export default {
-  name: 'Dashboard',
+  name: "Dashboard",
   components: { Widget },
   data() {
     return {
-      table: [{
-        id: 0,
-        name: 'Mark Otto',
-        email: 'ottoto@wxample.com',
-        product: 'ON the Road',
-        price: '$25 224.2',
-        date: '11 May 2017',
-        city: 'Otsego',
-        status: 'Sent',
-      },
-      {
-        id: 1,
-        name: 'Jacob Thornton',
-        email: 'thornton@wxample.com',
-        product: 'HP Core i7',
-        price: '$1 254.2',
-        date: '4 Jun 2017',
-        city: 'Fivepointville',
-        status: 'Sent',
-      },
-      {
-        id: 2,
-        name: 'Larry the Bird',
-        email: 'bird@wxample.com',
-        product: 'Air Pro',
-        price: '$1 570.0',
-        date: '27 Aug 2017',
-        city: 'Leadville North',
-        status: 'Pending',
-      },
-      {
-        id: 3,
-        name: 'Joseph May',
-        email: 'josephmay@wxample.com',
-        product: 'Version Control',
-        price: '$5 224.5',
-        date: '19 Feb 2018',
-        city: 'Seaforth',
-        status: 'Declined',
-      },
-      {
-        id: 4,
-        name: 'Peter Horadnia',
-        email: 'horadnia@wxample.com',
-        product: 'Let\'s Dance',
-        price: '$43 594.7',
-        date: '1 Mar 2018',
-        city: 'Hanoverton',
-        status: 'Sent',
-      }],
+      table: [
+        {
+          id: 0,
+          name: "Marcus Cunha",
+          email: "ottoto@wxample.com",
+          product: "ON the Road",
+          price: "$25 224.2",
+          date: "11 May 2017",
+          city: "Otsego",
+          status: "Sent"
+        },
+        {
+          id: 1,
+          name: "Danilo ",
+          email: "thornton@wxample.com",
+          product: "HP Core i7",
+          price: "$1 254.2",
+          date: "4 Jun 2017",
+          city: "Fivepointville",
+          status: "Sent"
+        },
+        {
+          id: 2,
+          name: "Denis",
+          email: "bird@wxample.com",
+          product: "Air Pro",
+          price: "$1 570.0",
+          date: "27 Aug 2017",
+          city: "Leadville North",
+          status: "Pending"
+        },
+        {
+          id: 3,
+          name: "Pedro",
+          email: "josephmay@wxample.com",
+          product: "Version Control",
+          price: "$5 224.5",
+          date: "19 Feb 2018",
+          city: "Seaforth",
+          status: "Declined"
+        },
+        {
+          id: 4,
+          name: "Marcelo",
+          email: "horadnia@wxample.com",
+          product: "Let's Dance",
+          price: "$43 594.7",
+          date: "1 Mar 2018",
+          city: "Hanoverton",
+          status: "Sent"
+        }
+      ]
     };
   },
   methods: {
@@ -325,12 +327,12 @@ export default {
     getData() {
       const data = [];
       const seriesCount = 3;
-      const accessories = ['SMX', 'Direct', 'Networks'];
+      const accessories = ["SMX", "Direct", "Networks"];
 
       for (let i = 0; i < seriesCount; i += 1) {
         data.push({
           label: accessories[i],
-          data: Math.floor(Math.random() * 100) + 1,
+          data: Math.floor(Math.random() * 100) + 1
         });
       }
 
@@ -342,23 +344,23 @@ export default {
           pie: {
             innerRadius: 0.8,
             show: true,
-            fill: 0.5,
-          },
+            fill: 0.5
+          }
         },
-        colors: ['#ffc247', '#f55d5d', '#9964e3'],
+        colors: ["#369", "#f55d5d", "#798892"],
         legend: {
           noColumns: 1,
           container: this.$refs.chartLegend,
-          labelBoxBorderColor: '#ffffff',
-        },
+          labelBoxBorderColor: "#ffffff"
+        }
       });
-    },
+    }
   },
   mounted() {
     this.initChart();
 
-    window.addEventListener('resize', this.initChart);
-  },
+    window.addEventListener("resize", this.initChart);
+  }
 };
 </script>
 
