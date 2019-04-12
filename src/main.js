@@ -7,6 +7,7 @@ import BootstrapVue from 'bootstrap-vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
 import VueTouch from 'vue-touch';
 import Trend from 'vuetrend';
+import VueResource from 'vue-resource'
 
 import store from './store';
 import router from './Routes';
@@ -15,6 +16,7 @@ import App from './App';
 Vue.use(BootstrapVue);
 Vue.use(VueTouch);
 Vue.use(Trend);
+Vue.use(VueResource);
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyB7OXmzfQYua_1LEhRdqsoYzyJOPh9hGLg',

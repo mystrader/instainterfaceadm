@@ -115,13 +115,13 @@
             <table class="table table-lg mb-0">
               <thead>
                 <tr class="text-muted">
-                  <th>NAME</th>
-                  <th>EMAIL</th>
-                  <th>PRODUCT</th>
-                  <th>PRICE</th>
-                  <th>DATE</th>
-                  <th>CITY</th>
-                  <th>STATUS</th>
+                  <th>id</th>
+                  <th>Número</th>
+                  <th>Descrição</th>
+                  <th>Atendidas</th>
+                  <th>Desistências</th>
+                  <th>% Desistências</th>
+                  <th>Fila</th>
                 </tr>
               </thead>
               <tbody>
@@ -129,21 +129,22 @@
                   v-for="row in table"
                   :key="row.id"
                 >
-                  <td>{{row.name}}</td>
-                  <td>{{row.email}}</td>
-                  <td>{{row.product}}</td>
-                  <td>{{row.price}}</td>
-                  <td>{{row.date}}</td>
-                  <td>{{row.city}}</td>
+                  <td>{{row.tipo}}</td>
+                  <td>{{row.numero}}</td>
+                  <td>{{row.descricao}}</td>
+                  <td>{{row.atendidas}}</td>
+                  <td>{{row.desistencia}}</td>
+                  <td>{{row.perc_desistencia}}</td>
                   <td>
-                    <b-button
+                    {{row.empespera}}
+                    <!-- <b-button
                       :variant="row.status === 'Pending'
                         ? 'success'
                         : row.status === 'Declined' ? 'danger' : 'info'"
                       class="p-1 px-3 btn-xs"
                     >
                       {{row.status}}
-                    </b-button>
+                    </b-button> -->
                   </td>
                 </tr>
               </tbody>
@@ -260,58 +261,76 @@ export default {
   components: { Widget },
   data() {
     return {
-      table: [
-        {
-          id: 0,
-          name: "Marcus Cunha",
-          email: "ottoto@wxample.com",
-          product: "ON the Road",
-          price: "$25 224.2",
-          date: "11 May 2017",
-          city: "Otsego",
-          status: "Sent"
-        },
-        {
-          id: 1,
-          name: "Danilo ",
-          email: "thornton@wxample.com",
-          product: "HP Core i7",
-          price: "$1 254.2",
-          date: "4 Jun 2017",
-          city: "Fivepointville",
-          status: "Sent"
-        },
-        {
-          id: 2,
-          name: "Denis",
-          email: "bird@wxample.com",
-          product: "Air Pro",
-          price: "$1 570.0",
-          date: "27 Aug 2017",
-          city: "Leadville North",
-          status: "Pending"
-        },
-        {
-          id: 3,
-          name: "Pedro",
-          email: "josephmay@wxample.com",
-          product: "Version Control",
-          price: "$5 224.5",
-          date: "19 Feb 2018",
-          city: "Seaforth",
-          status: "Declined"
-        },
-        {
-          id: 4,
-          name: "Marcelo",
-          email: "horadnia@wxample.com",
-          product: "Let's Dance",
-          price: "$43 594.7",
-          date: "1 Mar 2018",
-          city: "Hanoverton",
-          status: "Sent"
-        }
-      ]
+  "table": [{
+			"id": 1,
+			"tipo": "VOZ",
+			"numero": "acc1_2001",
+			"descricao": "GRUPOCARGA",
+			"atendidas": "154",
+			"desistencia": "54",
+			"perc_desistencia": "25%",
+			"empespera": "5",
+			"maiorespera": "01:25:02",
+			"disponivel": "8",
+			"ocupado": "10",
+			"pausa": "2",
+			"patendimento": "15",
+			"quarentena": "0",
+			"sla_intervaloum": "30",
+			"sla_intervalodois": "60",
+			"sla_intervalotres": "90",
+			"sla_intervaloum_value": "50%",
+			"sla_intervalodois_value": "100%",
+			"sla_intervalotres_value": "100%"
+		},
+		{
+			"id": 1,
+			"tipo": "CHAT",
+			"numero": "acc1_2002",
+			"descricao": "GRUPOCARGA2",
+			"atendidas": "100",
+			"desistencia": "15",
+			"perc_desistencia": "30%",
+			"empespera": "8",
+			"maiorespera": "02:25:02",
+			"disponivel": "8",
+			"ocupado": "10",
+			"pausa": "2",
+			"patendimento": "15",
+			"quarentena": "0",
+			"sla_intervaloum": "20",
+			"sla_intervalodois": "50",
+			"sla_intervalotres": "80",
+			"sla_intervaloum_value": "0%",
+			"sla_intervalodois_value": "0%",
+			"sla_intervalotres_value": "0%"
+		},
+		{
+			"id": 1,
+			"tipo": "VOZ",
+			"numero": "acc1_2008",
+			"descricao": "GRUPOCARGA3",
+			"atendidas": "90",
+			"desistencia": "20",
+			"perc_desistencia": "50%",
+			"empespera": "9",
+			"maiorespera": "03:25:02",
+			"disponivel": "4",
+			"ocupado": "8",
+			"pausa": "5",
+			"patendimento": "15",
+			"quarentena": "0",
+			"sla_intervaloum": "30",
+			"sla_intervalodois": "60",
+			"sla_intervalotres": "90",
+			"sla_intervaloum_value": "100%",
+			"sla_intervalodois_value": "100%",
+			"sla_intervalotres_value": "100%"
+		}
+	]
+
+
+
     };
   },
   methods: {
